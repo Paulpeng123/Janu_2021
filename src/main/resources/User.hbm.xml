@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<!--    配置类和表的对应关系
+        class标签
+        name:class的全路径
+        table:数据库表的名称-->
+    <class name="com.pf.hibernate.User" table="t_user">
+<!--        配置实体类id与表id对应，hibernate要求有一个属性唯一值-->
+<!--        id标签 name属性：实体类id的属性的名称-->
+<!--            column属性：生成的表的字段的名称-->
+        <id name="id" column="id">
+<!--            设置数据库id的增长策略
+                native生成的就会是主键自增长-->
+            <generator class="native"/>
+        </id>
+<!--        配置其他的属性和表字段的对应-->
+        <property name="userName" column="userName"/>
+        <property name="password" column="password"/>
+    </class>
+</hibernate-mapping>
